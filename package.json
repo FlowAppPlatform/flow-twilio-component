@@ -1,0 +1,23 @@
+{
+  "name": "twilio-send-sms",
+  "version": "1.0.0",
+  "description": "Twilio SMS component for Flow SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlowAppPlatform/twilio-send-sms.git"
+  },
+  "keywords": [
+    "sms",
+    "twilio"
+  ],
+  "author": "Hackerbay Inc. <hello@hackerbay.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/FlowAppPlatform/twilio-send-sms/issues"
+  },
+  "homepage": "https://github.com/FlowAppPlatform/twilio-send-sms#readme"
+}
