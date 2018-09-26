@@ -1,14 +1,22 @@
 {
-  "name": "twilio-send-sms",
+  "name": "flow-twilio-component",
   "version": "1.0.0",
   "description": "Twilio SMS component for Flow SDK",
-  "main": "index.js",
+  "main": "./src/component.js",
   "scripts": {
-    "test": "test"
+    "test": "eslint ./src --fix && ./node_modules/mocha/bin/mocha tests.js"
+  },
+  "dependencies": {
+    "flow-platform-sdk": "^2.0.94",
+    "twilio": "^3.20.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "mocha": "^5.2.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FlowAppPlatform/twilio-send-sms.git"
+    "url": "git+https://github.com/FlowAppPlatform/flow-twilio-component.git"
   },
   "keywords": [
     "sms",
@@ -17,7 +25,7 @@
   "author": "Hackerbay Inc. <hello@hackerbay.io>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/FlowAppPlatform/twilio-send-sms/issues"
+    "url": "https://github.com/FlowAppPlatform/flow-twilio-component/issues"
   },
-  "homepage": "https://github.com/FlowAppPlatform/twilio-send-sms#readme"
+  "homepage": "https://github.com/FlowAppPlatform/flow-twilio-component#readme"
 }
