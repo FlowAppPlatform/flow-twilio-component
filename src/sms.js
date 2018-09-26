@@ -1,6 +1,6 @@
 /**
  *
- * This class constructs an sms message and creates it with th create() method
+ * This class constructs an sms message and creates it with the create() method
  * The class uses Twilio to send sms
  * 
  *
