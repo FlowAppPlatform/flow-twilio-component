@@ -26,21 +26,21 @@
         "categoryDescription": "Basic settings about sms component.",
         "properties": [
           {
-            "id": "from",
+            "id": "From",
             "name": "From",
             "type": "text",
             "data": null,
             "options": { "required": true }
           },
           {
-            "id": "to",
+            "id": "To",
             "name": "To",
             "type": "text",
             "data": null,
             "options": { "required": true }
           },
           {
-            "id": "body",
+            "id": "Body",
             "name": "Body",
             "type": "text",
             "data": null
@@ -52,15 +52,15 @@
         "categoryDescription": "API settings for Twilio.",
         "properties": [
           {
-            "id": "account_sid",
-            "name": "ACCOUNT_SID",
+            "id": "ACCOUNT_SID",
+            "name": "Account SID",
             "type": "text",
             "data": null,
             "options": { "required": true, "global": true }
           },
           {
-            "id": "auth_token",
-            "name": "AUTH_TOKEN",
+            "id": "AUTH_TOKEN",
+            "name": "Authentication Token",
             "type": "text",
             "data": null,
             "options": { "required": true, "global": true }
