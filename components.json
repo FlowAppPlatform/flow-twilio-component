@@ -1,0 +1,74 @@
+{
+  "flow-twilio-component-send-sms": {
+    "componentId": "flow-twilio-component-send-sms",
+    "title": "Send SMS",
+    "imgSrc": "assets/icons/send-sms.svg",
+    "type": "flow-graph-component",
+    "file": "src/send-sms.js",
+    "metadata": {
+      "icon-color": "#7ab260"
+    },
+    "ports": [
+      {
+        "id": "sent",
+        "title": "Sent",
+        "description": "Denotes the state when sms is sent"
+      },
+      {
+        "id": "error",
+        "title": "Error",
+        "description": "Denotes the state when sending fails"
+      }
+    ],
+    "properties": [
+      {
+        "categoryName": "General",
+        "categoryDescription": "Basic settings about sms component.",
+        "properties": [
+          {
+            "id": "From",
+            "name": "From",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "To",
+            "name": "To",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "Body",
+            "name": "Body",
+            "type": "text",
+            "data": null
+          }
+        ]
+      }, 
+      {
+        "categoryName": "Advanced",
+        "categoryDescription": "API settings for Twilio.",
+        "properties": [
+          {
+            "id": "ACCOUNT_SID",
+            "name": "Account SID",
+            "type": "text",
+            "data": null,
+            "options": { "required": true, "global": true }
+          },
+          {
+            "id": "AUTH_TOKEN",
+            "name": "Authentication Token",
+            "type": "text",
+            "data": null,
+            "options": { "required": true, "global": true }
+          }
+        ]
+      }
+    ],
+    "showOnComponentsPanel": false,
+    "isDeletable": false
+  }
+}

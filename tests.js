@@ -1,7 +1,8 @@
 var SMS = require('./src/sms');
-var SendSMSComponent = require('./src/component');
+var SendSMSComponent = require('./src/send-sms');
 
-describe('SMS Tests', function () {
+describe(`SMS Tests
+`, function () {
   it(`SMS instance "new SMS()" should not be valid`, function (done) {
     try {
       new SMS();
@@ -38,7 +39,8 @@ describe('SMS Tests', function () {
   })
 })
 
-describe('Component Tests', function () {
+describe(`Component Tests
+`, function () {
   it('Component should have all required properties', function (done) {
     try {
       const component = new SendSMSComponent();
