@@ -55,22 +55,22 @@ class SendSMSComponent extends Flow.Component {
         ).create();
       
       if (task instanceof Error) {
-        this.emitResult(this.getPort('Error'));
+        this.emitResult('Error');
       } else
         task
           .then(() => {
-            this.emitResult(this.getPort('Sent'));
+            this.emitResult('Sent');
           })
           .catch(() => {
-            this.emitResult(this.getPort('Error'));
+            this.emitResult('Error');
           })
           .done();
     });
 
   }
 
-  emitResult(port) {
-    port.emit();
+  emitResult(portName) {
+    this.getPort(portName).emit();
     this.taskComplete();
   }
 
