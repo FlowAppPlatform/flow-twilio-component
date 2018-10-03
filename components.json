@@ -5,6 +5,7 @@
     "imgSrc": "assets/icons/send-sms.svg",
     "type": "flow-graph-component",
     "file": "src/send-sms.js",
+    "executionPlatform": ["server"],
     "metadata": {
       "icon-color": "#7ab260"
     },
