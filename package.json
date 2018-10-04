@@ -1,8 +1,8 @@
 {
   "name": "flow-twilio-component",
   "version": "1.0.0",
-  "description": "Twilio SMS component for Flow SDK",
-  "main": "./src/component.js",
+  "description": "Twilio SMS component designed to work with Flow SDK",
+  "main": "./send-sms.js",
   "scripts": {
     "test": "eslint ./src --fix && ./node_modules/mocha/bin/mocha tests.js"
   },
