@@ -1,5 +1,5 @@
 var SMS = require('./src/sms');
-var SendSMSComponent = require('./src/send-sms');
+var SendSMSComponent = require('./send-sms');
 
 describe(`SMS Tests
 `, function () {
@@ -15,7 +15,7 @@ describe(`SMS Tests
     const sms = new SMS(
       'ACe4e429f0aeb107130daabe39bffb98de', '171eea1f076c27d6ed5bcd48d803abf4',
       '', 'to@sample.com', 'Body');
-    done(!sms.smsValid() ? null : new Error('Invalid sms instance read valid'));
+    done(!sms.isSmsValid() ? null : new Error('Invalid sms instance read valid'));
   })
   it(`SMS instance "new SMS(
     'ACe4e429f0aeb107130daabe39bffb98de','',
@@ -25,7 +25,7 @@ describe(`SMS Tests
         'ACe4e429f0aeb107130daabe39bffb98de', '',
         '+18646574367','+15107750208','Body'
       );
-      done(!sms.smsValid() ? null : new Error('Invalid sms instance read valid'));
+      done(!sms.isSmsValid() ? null : new Error('Invalid sms instance read valid'));
     } catch(e) { done(); }
   })
   it(`SMS instance "new SMS(
@@ -35,7 +35,7 @@ describe(`SMS Tests
       'ACe4e429f0aeb107130daabe39bffb98de', '171eea1f076c27d6ed5bcd48d803abf4',
       '+18646574367','+15107750208','Body'
     );
-    done(sms.smsValid() ? null : new Error('Valid sms instance read invalid'));
+    done(sms.isSmsValid() ? null : new Error('Valid sms instance read invalid'));
   })
 })
 
