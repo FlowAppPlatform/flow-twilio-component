@@ -11,7 +11,7 @@
     },
     "ports": [
       {
-        "id": "sent",
+        "id": "Sent",
         "title": "Sent",
         "description": "Denotes the state when sms is sent",
         "properties": [
