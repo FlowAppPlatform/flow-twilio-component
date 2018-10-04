@@ -22,3 +22,5 @@ deploy:
    on:
      branch: master
      tags: false
+notifications:
+   slack: hackerbaycompany:Wwpzzm6F0A6DjQY8F1lebbee
