@@ -1,11 +1,13 @@
 var Flow = require('flow-platform-sdk');
-var SMS = require('./sms');
+var SMS = require('./src/sms');
 
 /*
 *
-* SendSMSComponent sends sms
-* The component has 5 properties - `Account SID`, `Authentication Token`, From`, `To`, and `Body` which are all required to send the sms
+* This component sends sms
+*
+* The component has 5 properties - `Account SID`, `Authentication Token`, From`, `To`, and `Body`
 * The component has 2 ports respective to the sms statuses `Sent`, `Error`
+* The ports each have the `Data` property, the response from Twilio
 *
 */
 
@@ -39,6 +41,14 @@ class SendSMSComponent extends Flow.Component {
 
     var sent = new Flow.Port('Sent');
     var error = new Flow.Port('Error');
+
+    var response = new Flow.Property('Data', 'object');
+    response.required = true;
+    sent.addProperty(response);
+    
+    var generalError = new Flow.Property('Data', 'object');
+    generalError.required = true;
+    error.addProperty(generalError);
     
     this.addPort(sent);
     this.addPort(error);
@@ -55,23 +65,28 @@ class SendSMSComponent extends Flow.Component {
         ).create();
       
       if (task instanceof Error) {
-        this.emitResult('Error');
-      } else
-        task
-          .then(() => {
-            this.emitResult('Sent');
-          })
-          .catch(() => {
-            this.emitResult('Error');
-          })
-          .done();
+        const port = this.getPort('Error');
+        port.getProperty('Data').data = task;
+        port.emit();
+        this.taskComplete();
+        return;
+      }
+      task
+        .then(response => {
+          const port = this.getPort('Sent');
+          port.getProperty('Data').data = response;
+          port.emit();
+          this.taskComplete();
+        })
+        .catch(err => {
+          const port = this.getPort('Error');
+          port.getProperty('Data').data = err;
+          port.emit();
+          this.taskComplete();
+        })
+        .done();
     });
 
-  }
-
-  emitResult(portName) {
-    this.getPort(portName).emit();
-    this.taskComplete();
   }
 
 }

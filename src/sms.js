@@ -22,7 +22,7 @@ class SMS {
   }
 
   create() {
-    if (!this.smsValid()) return new Error('SMS error, please check \'SMS\' contructor');
+    if (!this.isSmsValid()) return new Error('SMS error, please check \'SMS\' contructor');
     return (
       this.twilio
         .messages
@@ -34,7 +34,7 @@ class SMS {
     );
   }
 
-  smsValid() {
+  isSmsValid() {
     return (
       Boolean(this.ACCOUNT_SID) &&
       Boolean(this.AUTH_TOKEN) &&

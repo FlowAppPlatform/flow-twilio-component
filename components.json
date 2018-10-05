@@ -4,20 +4,51 @@
     "title": "Send SMS",
     "imgSrc": "assets/icons/send-sms.svg",
     "type": "flow-graph-component",
-    "file": "src/send-sms.js",
+    "file": "send-sms.js",
+    "executionPlatform": ["server"],
     "metadata": {
       "icon-color": "#7ab260"
     },
     "ports": [
       {
-        "id": "sent",
+        "id": "Sent",
         "title": "Sent",
-        "description": "Denotes the state when sms is sent"
+        "description": "Denotes the state when sms is sent",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port.",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Data",
+                "type": "object",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
       },
       {
-        "id": "error",
+        "id": "Error",
         "title": "Error",
-        "description": "Denotes the state when sending fails"
+        "description": "Denotes the state when sms sending fails",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port.",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Error",
+                "type": "object",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
       }
     ],
     "properties": [
