@@ -99,7 +99,7 @@
         ]
       }
     ],
-    "showOnComponentsPanel": false,
-    "isDeletable": false
+    "showOnComponentsPanel": true,
+    "isDeletable": true
   }
 }
