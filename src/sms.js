@@ -40,8 +40,7 @@ class SMS {
       Boolean(this.AUTH_TOKEN) &&
       Boolean(this.twilio) &&
       Boolean(this.from) &&
-      Boolean(this.to) &&
-      Boolean(this.body)
+      Boolean(this.to)
     );
   }
 

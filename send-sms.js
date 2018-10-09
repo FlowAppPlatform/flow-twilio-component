@@ -31,7 +31,6 @@ class SendSMSComponent extends Flow.Component {
     to.required = true;
 
     var body = new Flow.Property('Body', 'text');
-    body.required = true;
 
     this.addProperty(account_sid);
     this.addProperty(auth_token);
