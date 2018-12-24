@@ -11,16 +11,16 @@ after_success:
 - npm cache clean
 - npm set init.author.name $NPM_USERNAME
 - npm set init.author.email $NPM_EMAIL
-- npm set init.author.url "https://flowappplatform.com
+- npm set init.author.url `https://flowappplatform.com`
 - npm --no-git-tag-version version 1.0.$TRAVIS_BUILD_NUMBER --force
-- echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+- echo `//registry.npmjs.org/:_authToken=\${NPM_TOKEN}` > .npmrc
 - sleep 10s
 deploy:
    provider: script
    skip_cleanup: true
    script: npm publish
    on:
-     branch: master
+     branch: release
      tags: false
 notifications:
    slack: hackerbaycompany:Wwpzzm6F0A6DjQY8F1lebbee
