@@ -12,65 +12,31 @@ var SendSMSComponent = require('./send-sms');
 let account_sid = '';
 let authentication_token = '';
 
+const Graph = require('flow-platform-sdk').Graph;
+
 describe(`Component Tests
 `, function () {
-  it('Component should have all required properties', function (done) {
+  it('Component should execute without errors', function (done) {
     try {
+      
       const component = new SendSMSComponent();
-      component.getProperty('ACCOUNT_SID');
-      component.getProperty('AUTH_TOKEN');
-      component.getProperty('From');
-      component.getProperty('To');
-      component.getProperty('Body');
-      done();
+
+      component.getProperty('ACCOUNT_SID').data = account_sid;
+      component.getProperty('AUTH_TOKEN').data = authentication_token;
+      component.getProperty('From').data = 'Twilio Sender Number';
+      component.getProperty('To').data = '+15149950278';
+      component.getProperty('Body').data = 'Test message, Ignore this.';
+
+      component.getPort('Sent').onEmit(function(){
+        done();
+      });
+      component.getPort('Error').onEmit(function(){
+        done(component.getPort('Error').getProperty('Data').data);
+      });
+
+      new Graph("graph-1").addComponent(component);
+      component.execute();
+
     } catch(e) { done(new Error('Component missing required properties')); }
-  })
-  it('Component should have all required ports', function (done) {
-    try {
-      const component = new SendSMSComponent();
-      component.getPort('Sent');
-      component.getPort('Error');
-      done();
-    } catch(e) { done(new Error('Component missing required ports')); }
-  })
-})
-
-if (!(account_sid && authentication_token)) return;
-
-describe(`SMS Tests
-`, function () {
-  it(`SMS instance "new SMS()" should not be valid`, function (done) {
-    try {
-      new SMS();
-      done(new Error('Invalid sms instance read valid'));
-    } catch(e) { done() }
-  })
-  it(`SMS instance "new SMS(
-    account_sid,authentication_token,
-    '+18646574367','+15107750208','Body')" should not be valid`, function (done) {
-    const sms = new SMS(
-      account_sid, authentication_token,
-      '', 'to@sample.com', 'Body');
-    done(!sms.isSmsValid() ? null : new Error('Invalid sms instance read valid'));
-  })
-  it(`SMS instance "new SMS(
-    account_sid,'',
-    '+18646574367','+15107750208','Body')" should not be valid`, function (done) {
-    try {
-      const sms = new SMS(
-        account_sid, '',
-        '+18646574367','+15107750208','Body'
-      );
-      done(!sms.isSmsValid() ? null : new Error('Invalid sms instance read valid'));
-    } catch(e) { done(); }
-  })
-  it(`SMS instance "new SMS(
-    account_sid,authentication_token,
-    '+18646574367','+15107750208','Body')" should be valid`, function (done) {
-    const sms = new SMS(
-      account_sid, authentication_token,
-      '+18646574367','+15107750208','Body'
-    );
-    done(sms.isSmsValid() ? null : new Error('Valid sms instance read invalid'));
   })
 })
