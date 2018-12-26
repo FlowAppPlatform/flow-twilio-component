@@ -4,23 +4,19 @@ node_js:
 - '10.1'
 install:
 - npm install
+# run tests
 script:
-- npm test # run tests
+- npm test
 after_success:
-# publish to npm
 - npm cache clean
-- npm set init.author.name $NPM_USERNAME
-- npm set init.author.email $NPM_EMAIL
-- npm set init.author.url `https://flowappplatform.com`
-- npm --no-git-tag-version version 1.0.$TRAVIS_BUILD_NUMBER --force
-- echo `//registry.npmjs.org/:_authToken=\${NPM_TOKEN}` > .npmrc
-- sleep 10s
+- sh $TRAVIS_BUILD_DIR/.travis/version.sh
+- sleep 5s
+# publish to npm
 deploy:
-   provider: script
-   skip_cleanup: true
-   script: npm publish
-   on:
-     branch: release
-     tags: false
-notifications:
-   slack: hackerbaycompany:Wwpzzm6F0A6DjQY8F1lebbee
+  skip_cleanup: true
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_TOKEN
+  on:
+    branch: release
+    tags: false

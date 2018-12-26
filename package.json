@@ -1,6 +1,5 @@
 {
   "name": "flow-twilio-component",
-  "version": "1.0.0",
   "description": "Twilio SMS component designed to work with Flow SDK",
   "main": "send-sms.js",
   "scripts": {
