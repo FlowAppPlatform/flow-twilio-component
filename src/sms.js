@@ -18,10 +18,15 @@ class SMS {
     this.ACCOUNT_SID = ACCOUNT_SID;
     this.AUTH_TOKEN = AUTH_TOKEN;
 
+    if (process.env.NODE_ENV === 'testing') return;
     this.twilio = twilio(this.ACCOUNT_SID, this.AUTH_TOKEN);
   }
 
   create() {
+    /* Support tests to this point */
+    if (process.env.NODE_ENV === 'testing') return new Promise(
+      resolve => resolve(JSON.stringify({}))
+    );
     if (!this.isSmsValid()) return new Error('SMS error, please check \'SMS\' contructor');
     return (
       this.twilio

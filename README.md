@@ -1,10 +1,10 @@
 # Flow Twilio component
-The component is an npm package that sends sms using Twilio and is designed to work with Flow SDK
+The component sends sms using Twilio and is designed to work with Flow SDK
 
-*To use the component, install the package in your NodeJS project*
+*To get started, install the package in your NodeJS project*
 
 ```
-npm install flow-twilio-component --save
+npm i flow-twilio-component --save
 ```
 
 *Use the component as below*
@@ -48,14 +48,17 @@ component.getPort('Error').onEmit(function(){
   // the actual error can be accessed through the 'Data' property of the port
   let err = component.getPort('Error').getProperty('Data').data;
 });
+```
 
+*Execute the component*
+```javascript
+// add the component to a graph before executing it
+const Graph = require('flow-platform-sdk').Graph;
+new Graph("graph-1").addComponent(component);
 
-// mandatory to execute the component
 component.execute();
 ```
 
 #### Conclusion
-
-And that's it! You've successfully used the Flow Twilio component.
 
 If you are having trouble sending messages, check that you are using the correct [Twilio credentials](https://www.twilio.com/console/) and the right [sender number](https://www.twilio.com/console/phone-numbers/incoming).

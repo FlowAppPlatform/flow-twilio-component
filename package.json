@@ -1,13 +1,13 @@
 {
   "name": "flow-twilio-component",
-  "version": "1.0.0",
   "description": "Twilio SMS component designed to work with Flow SDK",
   "main": "send-sms.js",
   "scripts": {
-    "test": "eslint ./src --fix && ./node_modules/mocha/bin/mocha tests.js"
+    "test": "eslint ./src --fix && cross-env NODE_ENV='testing' ./node_modules/mocha/bin/mocha tests.js"
   },
   "dependencies": {
-    "flow-platform-sdk": "^2.0.94",
+    "cross-env": "^5.2.0",
+    "flow-platform-sdk": "^1.2.0",
     "twilio": "^3.20.0"
   },
   "devDependencies": {

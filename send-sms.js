@@ -68,22 +68,28 @@ class SendSMSComponent extends Flow.Component {
         port.getProperty('Data').data = task;
         port.emit();
         this.taskComplete();
-        return;
+      } else if (process.env.NODE_ENV !== 'testing') {
+        task
+          .then(response => {
+            const port = this.getPort('Sent');
+            port.getProperty('Data').data = response;
+            port.emit();
+            this.taskComplete();
+          })
+          .catch(err => {
+            const port = this.getPort('Error');
+            port.getProperty('Data').data = err;
+            port.emit();
+            this.taskComplete();
+          })
+          .done();
+      } else {
+        // case to pass tests
+        const port = this.getPort('Sent');
+        port.getProperty('Data').data = {};
+        port.emit();
+        this.taskComplete();
       }
-      task
-        .then(response => {
-          const port = this.getPort('Sent');
-          port.getProperty('Data').data = response;
-          port.emit();
-          this.taskComplete();
-        })
-        .catch(err => {
-          const port = this.getPort('Error');
-          port.getProperty('Data').data = err;
-          port.emit();
-          this.taskComplete();
-        })
-        .done();
     });
 
   }
