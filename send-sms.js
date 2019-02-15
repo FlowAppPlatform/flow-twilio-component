@@ -13,9 +13,9 @@ var SMS = require('./src/sms');
 
 class SendSMSComponent extends Flow.Component {
   
-  constructor() {
+  constructor(id = null) {
 
-    super();    
+    super(id);
     this.name = 'Send SMS';
 
     var account_sid = new Flow.Property('ACCOUNT_SID', 'text');

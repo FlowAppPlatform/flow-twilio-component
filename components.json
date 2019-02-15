@@ -1,9 +1,10 @@
 {
   "flow-twilio-component-send-sms": {
-    "componentId": "flow-twilio-component-send-sms",
+    "graphComponentId": "flow-twilio-component-send-sms",
     "title": "Send SMS",
-    "imgSrc": "assets/icons/send-sms.svg",
-    "type": "flow-graph-component",
+    "category": "Actions",
+    "imgSrc": "assets/images/icons/send-sms.svg",
+    "type": "graphComponent",
     "file": "send-sms.js",
     "executionPlatform": ["server"],
     "metadata": {
@@ -17,7 +18,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port.",
+            "categoryDescription": "Basic settings about this port",
             "properties": [
               {
                 "id": "Data",
@@ -37,7 +38,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port.",
+            "categoryDescription": "Basic settings about this port",
             "properties": [
               {
                 "id": "Data",
@@ -54,7 +55,7 @@
     "properties": [
       {
         "categoryName": "General",
-        "categoryDescription": "Basic settings about sms component.",
+        "categoryDescription": "Basic settings about sms component",
         "properties": [
           {
             "id": "From",
@@ -80,7 +81,7 @@
       }, 
       {
         "categoryName": "Advanced",
-        "categoryDescription": "API settings for Twilio.",
+        "categoryDescription": "API settings for Twilio",
         "properties": [
           {
             "id": "ACCOUNT_SID",
