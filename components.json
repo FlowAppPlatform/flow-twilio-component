@@ -2,13 +2,13 @@
   "flow-twilio-component-send-sms": {
     "graphComponentId": "flow-twilio-component-send-sms",
     "title": "Send SMS",
-    "category": "Actions",
+    "category": "SMS",
     "imgSrc": "assets/images/icons/send-sms.svg",
     "type": "graphComponent",
     "file": "send-sms.js",
     "executionPlatform": ["server"],
     "metadata": {
-      "icon-color": "#7ab260"
+      "icon-color": "#f49835"
     },
     "ports": [
       {
