@@ -15,6 +15,7 @@
         "id": "Sent",
         "title": "Sent",
         "description": "Denotes the state when sms is sent",
+        "color": "#3BC105",
         "properties": [
           {
             "categoryName": "General",
@@ -35,6 +36,7 @@
         "id": "Error",
         "title": "Error",
         "description": "Denotes the state when sms sending fails",
+        "color": "#C83838",
         "properties": [
           {
             "categoryName": "General",
